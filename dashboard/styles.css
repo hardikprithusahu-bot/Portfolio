@@ -537,7 +537,7 @@ body:hover .cursor-glow {
 .scroll-indicator span {
     font-size: 0.85rem;
     color: var(--text-muted);
-    letter-spacing: 1px;
+    letter-spacing: 15px;
 }
 
 .mouse {
