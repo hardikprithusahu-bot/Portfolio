@@ -521,7 +521,7 @@ body:hover .cursor-glow {
 
 /* Scroll Indicator */
 .scroll-indicator {
-    position: absolute;
+    position: relative;
     margin-top: 60px;
     bottom: 40px;
     left: 50%;
