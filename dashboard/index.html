@@ -1,574 +1,440 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="nes" data-crt="on">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardik Sahu | Data Analytics Specialist</title>
+    <title>Hardik Sahu | Customer Success</title>
+    <meta name="description" content="Hardik Sahu: customer success professional in Bengaluru with B2B experience across healthcare and SaaS. 4.6/5 CSAT, 50+ client queries resolved daily, and AI tools for customer support. Press start to play.">
+    <meta property="og:title" content="Hardik Sahu | Customer Success">
+    <meta property="og:description" content="An 8-bit portfolio: customer success, account management, client operations, and AI for support.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#10102a">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%23f8b800'/%3E%3Crect x='3' y='1' width='2' height='1' fill='%23000'/%3E%3Crect x='5' y='2' width='1' height='2' fill='%23000'/%3E%3Crect x='3' y='4' width='2' height='1' fill='%23000'/%3E%3Crect x='3' y='6' width='2' height='1' fill='%23000'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Mark that JavaScript is on, and restore saved settings before the page draws.
+        document.documentElement.classList.add('js');
+        try {
+            const palette = localStorage.getItem('palette');
+            const crt = localStorage.getItem('crt');
+            if (palette) document.documentElement.dataset.palette = JSON.parse(palette);
+            if (crt) document.documentElement.dataset.crt = JSON.parse(crt);
+        } catch (e) {}
+    </script>
 </head>
 <body>
-    <!-- Cursor follower -->
-    <div class="cursor-glow"></div>
-    
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-logo">HS</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact" class="nav-cta">Contact</a></li>
-        </ul>
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="crt" aria-hidden="true"></div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-bg">
-            <div class="grid-lines"></div>
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
+    <!-- HUD: the game's status bar, which is also the site's navigation -->
+    <header class="hud">
+        <div class="hud-inner">
+            <a href="#top" class="hud-player" aria-label="Hardik Sahu, back to top">
+                <span class="hud-label">HARDIK</span>
+                <span class="hud-value" id="score">000000</span>
+            </a>
+            <nav class="hud-nav" aria-label="Main">
+                <a href="#about">About</a>
+                <a href="#experience">Quests</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="hud-coins" aria-label="Coins collected">
+                <span class="coin-icon" aria-hidden="true"></span>
+                <span class="hud-value">×<span id="coins">00</span></span>
+            </div>
+            <div class="hud-actions">
+                <button class="hud-btn" type="button" data-action="achievements" aria-label="Achievements">
+                    <i class="fas fa-trophy" aria-hidden="true"></i> <span id="ach-count">0/8</span>
+                </button>
+                <button class="hud-btn" type="button" data-action="sound" aria-label="Sound" aria-pressed="false">
+                    <i class="fas fa-volume-xmark" aria-hidden="true"></i>
+                </button>
+                <button class="hud-btn" type="button" data-action="menu" aria-label="Open menu">
+                    <i class="fas fa-bars" aria-hidden="true"></i><span class="hud-btn-text">MENU</span>
+                </button>
             </div>
         </div>
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span class="pulse"></span>
-                Available for opportunities
-            </div>
-            <h1 class="hero-title">
-                <span class="line line-1">Hardik</span>
-                <span class="line line-2">Sahu</span>
-            </h1>
-            <div class="hero-subtitle">
-                <span class="typing-text">Data Analytics Specialist</span>
-                <span class="subtitle-divider">|</span>
-                <span>Biotechnology Graduate</span>
-            </div>
-            <p class="hero-description">
-                Transforming complex data into actionable insights with Python, ML, and a passion for innovation.
-            </p>
-            <div class="hero-cta">
-                <a href="#contact" class="btn btn-primary">
-                    <span>Get in Touch</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="Hardik_Sahu_Resume.pdf" class="btn btn-secondary" download>
-                    <i class="fas fa-download"></i>
-                    <span>Download CV</span>
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number" data-count="18">0</span><span class="stat-suffix">+</span>
-                    <span class="stat-label">Months Experience</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-count="9.06">0</span>
-                    <span class="stat-label">GPA Score</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-count="10000">0</span><span class="stat-suffix">+</span>
-                    <span class="stat-label">Products Verified</span>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll to explore</span>
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-        </div>
-    </section>
+    </header>
 
-    <!-- About Section -->
-    <section class="about section" id="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Introduction</span>
-                <h2 class="section-title">About Me</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="image-frame">
-                        <div class="image-placeholder">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="frame-accent"></div>
-                    </div>
+    <main id="main">
+        <!-- WORLD 0: Title screen -->
+        <section class="title-screen" id="top" data-world="Title">
+            <div class="container">
+                <p class="eyebrow">Customer Success · Account Management · Client Operations</p>
+                <h1 class="game-title">Hardik<br>Sahu</h1>
+                <div class="title-actions">
+                    <button class="pbtn pbtn-start" type="button" data-action="start">
+                        <span class="blink" aria-hidden="true">▶</span> Press start
+                    </button>
+                    <a href="Hardik_Sahu_Resume.pdf" class="pbtn pbtn-alt" download>
+                        <i class="fas fa-floppy-disk" aria-hidden="true"></i> Save file (resume)
+                    </a>
                 </div>
-                <div class="about-text">
-                    <p class="about-intro">
-                        Biotechnology professional with a stellar <span class="highlight">GPA of 9.06</span> and 
-                        <span class="highlight">18 months of experience</span> in Python-driven data analytics, 
-                        operations optimization, and ML-powered recommendation systems.
-                    </p>
-                    <p>
-                        I combine technical expertise in pandas, Bokeh, and SQL with domain knowledge in healthcare QA 
-                        and cosmetic chemistry. My approach bridges the gap between raw data and strategic business decisions.
-                    </p>
-                    <div class="about-details">
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>India</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>B.Tech Medical Biotechnology</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-briefcase"></i>
-                            <span>Open to Opportunities</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <p class="title-meta"><i class="fas fa-location-dot" aria-hidden="true"></i> Bengaluru, India · B2B healthcare &amp; SaaS</p>
 
-    <!-- Skills Section -->
-    <section class="skills section" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Expertise</span>
-                <h2 class="section-title">Technical Skills</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fas fa-code"></i>
+                <!-- The playable stage: click a ? block to make Hardik jump and reveal a stat -->
+                <div class="stage" aria-label="Mini game: hit the question blocks to reveal Hardik's results">
+                    <div class="cloud cloud-1" aria-hidden="true"></div>
+                    <div class="cloud cloud-2" aria-hidden="true"></div>
+                    <div class="cloud cloud-3" aria-hidden="true"></div>
+                    <div class="blocks">
+                        <button class="qblock" type="button" data-stat="4.6/5 CSAT" data-text="Average customer satisfaction across B2B healthcare accounts." aria-label="Question block 1"><span>?</span></button>
+                        <button class="qblock" type="button" data-stat="&lt;30 SEC" data-text="First response time, with a 15-minute resolution time." aria-label="Question block 2"><span>?</span></button>
+                        <button class="qblock" type="button" data-stat="50+ / DAY" data-text="Client queries resolved every day across chat, email and phone." aria-label="Question block 3"><span>?</span></button>
+                        <button class="qblock" type="button" data-stat="45% RENEWAL" data-text="Renewal rate across a portfolio of 25+ B2B SaaS clients." aria-label="Question block 4"><span>?</span></button>
                     </div>
-                    <h3>Languages & Databases</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">pandas</span>
-                        <span class="skill-tag">matplotlib</span>
-                        <span class="skill-tag">Bokeh</span>
-                        <span class="skill-tag">R</span>
-                        <span class="skill-tag">dplyr</span>
-                        <span class="skill-tag">shiny</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">MySQL</span>
-                    </div>
+                    <div class="player"><div class="sprite"></div></div>
+                    <div class="ground" aria-hidden="true"></div>
                 </div>
-                <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3>Tools & BI</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">DAX</span>
-                        <span class="skill-tag">Power Query</span>
-                        <span class="skill-tag">Excel</span>
-                        <span class="skill-tag">Pivot Tables</span>
-                        <span class="skill-tag">VLOOKUP</span>
-                        <span class="skill-tag">VBA</span>
-                        <span class="skill-tag">Plotly Express</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Domains</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Data Analytics</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Business Analytics</span>
-                        <span class="skill-tag">Market Research</span>
-                        <span class="skill-tag">Healthcare QA</span>
-                        <span class="skill-tag">Cosmetic Chemistry</span>
-                    </div>
+                <div class="stage-dialog px" aria-live="polite">
+                    <p class="stage-dialog-text">Tip: hit the <strong>?</strong> blocks to reveal my stats.</p>
+                    <ul class="collected" aria-label="Stats collected"></ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section class="experience section" id="experience">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Career Path</span>
-                <h2 class="section-title">Work Experience</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="marker-dot"></div>
-                        <div class="marker-line"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="company-info">
-                                <h3>Assiduus Global</h3>
-                                <span class="role">Operations Trainee</span>
+        <!-- WORLD 1: About -->
+        <section class="section" id="about" data-world="Player profile">
+            <div class="container">
+                <p class="world-tag">World 1 · Player profile</p>
+                <h2 class="section-title">Player 1: Hardik</h2>
+
+                <div class="about-grid">
+                    <aside class="profile px" aria-label="Character sheet">
+                        <div class="profile-top">
+                            <div class="sprite sprite-small"></div>
+                            <div>
+                                <p class="profile-name">HARDIK SAHU</p>
+                                <p class="profile-class">Class: Customer Success</p>
                             </div>
-                            <span class="timeline-date">Jan 2025 – Jun 2025</span>
                         </div>
-                        <ul class="timeline-achievements">
-                            <li>
-                                <strong>India B2B:</strong> Processed 100+ weekly POs across Amazon Vendor, Blinkit, 
-                                and Swiggy with 100% accuracy. Reduced order processing delays by 15%.
-                            </li>
-                            <li>
-                                <strong>US Dropshipping:</strong> Verified 10,000+ products against vendor sites. 
-                                Resolved 200+ data mismatches, reducing fulfillment errors by 20%.
-                            </li>
-                            <li>
-                                <strong>Shopify D2C:</strong> Listed 1,200+ products, optimizing content to drive 
-                                a 25% improvement in conversion rates.
-                            </li>
+                        <dl class="stats">
+                            <div><dt>Level</dt><dd>9+ months B2B</dd></div>
+                            <div><dt>Home</dt><dd>Bengaluru, India</dd></div>
+                            <div>
+                                <dt>Life (CSAT)</dt>
+                                <dd class="hearts" aria-label="4.6 out of 5">
+                                    <i class="fas fa-heart" aria-hidden="true"></i><i class="fas fa-heart" aria-hidden="true"></i><i class="fas fa-heart" aria-hidden="true"></i><i class="fas fa-heart" aria-hidden="true"></i><span class="heart-partial" aria-hidden="true"><i class="fas fa-heart"></i></span>
+                                    <span class="hearts-num">4.6/5</span>
+                                </dd>
+                            </div>
+                            <div><dt>Speed</dt><dd>&lt;30 sec first response</dd></div>
+                            <div><dt>Stamina</dt><dd>50+ queries per day</dd></div>
+                            <div><dt>Charm</dt><dd>45% renewal rate</dd></div>
+                        </dl>
+                    </aside>
+
+                    <div class="about-main">
+                        <div class="dialog px" data-action="skip-typing" title="Click to skip">
+                            <p class="dialog-speaker">HARDIK:</p>
+                            <p class="typed" aria-hidden="true" data-text="Customer success professional with 9+ months of B2B client-facing experience across healthcare and SaaS, plus 6 months in e-commerce operations. I resolve 50+ client queries daily within strict SLAs (sub-30-second first response, 15-minute resolution) while sustaining a 4.6/5 CSAT. I'm experienced in post-sales account management, renewals, onboarding and escalation handling, and in partnering with cross-functional teams to fix root causes. I pair clear client communication and FMCG stakeholder management with a data toolkit in Excel, Power BI and SQL."></p>
+                            <p class="full-text">Customer success professional with 9+ months of B2B client-facing experience across healthcare and SaaS, plus 6 months in e-commerce operations. I resolve 50+ client queries daily within strict SLAs (sub-30-second first response, 15-minute resolution) while sustaining a 4.6/5 CSAT. I'm experienced in post-sales account management, renewals, onboarding and escalation handling, and in partnering with cross-functional teams to fix root causes. I pair clear client communication and FMCG stakeholder management with a data toolkit in Excel, Power BI and SQL.</p>
+                            <span class="dialog-next blink" aria-hidden="true">▼</span>
+                        </div>
+
+                        <h3 class="sub-title">Special abilities</h3>
+                        <div class="abilities">
+                            <div class="ability px">
+                                <i class="fas fa-handshake" aria-hidden="true"></i>
+                                <h4>Client bond</h4>
+                                <p>Account reviews, onboarding, renewals and difficult conversations.</p>
+                            </div>
+                            <div class="ability px">
+                                <i class="fas fa-stopwatch" aria-hidden="true"></i>
+                                <h4>SLA speedrun</h4>
+                                <p>Ticket lifecycles, response and resolution targets, process fixes.</p>
+                            </div>
+                            <div class="ability px">
+                                <i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i>
+                                <h4>Data &amp; AI magic</h4>
+                                <p>Excel, Power BI and SQL, plus AI tools that make support better.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORLD 2: Experience -->
+        <section class="section section-alt" id="experience" data-world="Quest log">
+            <div class="container">
+                <p class="world-tag">World 2 · Quest log</p>
+                <h2 class="section-title">Quests completed</h2>
+                <p class="section-lede">Click a quest to open it.</p>
+
+                <div class="quests">
+                    <details class="quest px" open>
+                        <summary>
+                            <span class="quest-num">03</span>
+                            <span class="quest-head">
+                                <span class="quest-company">Even Healthcare</span>
+                                <span class="quest-role">Customer Experience Associate, B2B</span>
+                                <span class="quest-date">Apr 2026 – Present · Bengaluru</span>
+                            </span>
+                            <span class="quest-status status-live">In progress</span>
+                        </summary>
+                        <div class="quest-body">
+                            <ul class="quest-points">
+                                <li>Resolve 50+ client queries daily across chat, email and phone for B2B healthcare accounts, owning the full ticket lifecycle in Freshdesk.</li>
+                                <li>Sustain a sub-30-second first response and 15-minute resolution TAT, meeting SLA targets across a portfolio of 20+ client accounts.</li>
+                                <li>Earn an average CSAT of 4.6/5 by taking each issue through to closure and following up with clients after resolution.</li>
+                                <li>Brief clients proactively on status updates, service changes and policy revisions, reducing inbound follow-up volume by 20%.</li>
+                                <li>Identify recurring account-level issues and escalate them to cross-functional teams, driving process fixes that cut repeat queries by 15%.</li>
+                            </ul>
+                            <p class="loot"><span>Loot:</span> 4.6/5 CSAT · &lt;30s first response · −15% repeat queries</p>
+                        </div>
+                    </details>
+
+                    <details class="quest px">
+                        <summary>
+                            <span class="quest-num">02</span>
+                            <span class="quest-head">
+                                <span class="quest-company">Intervue.io</span>
+                                <span class="quest-role">Customer Success Intern, B2B SaaS (Post-Sales)</span>
+                                <span class="quest-date">Jan 2026 – Apr 2026 · Bengaluru</span>
+                            </span>
+                            <span class="quest-status">Cleared ★</span>
+                        </summary>
+                        <div class="quest-body">
+                            <ul class="quest-points">
+                                <li>Cultivated post-sales relationships across a portfolio of 25+ B2B clients through regular check-ins and account reviews with HR stakeholders.</li>
+                                <li>Led renewal and upsell conversations and surfaced expansion opportunities in existing accounts, contributing to a 45% renewal rate across the portfolio.</li>
+                                <li>Resolved 30+ client queries daily via chat and email, coordinating with internal teams to close escalations within 24 hours.</li>
+                                <li>Onboarded 15+ clients through tailored product walkthroughs, driving platform adoption and following up post-resolution to secure retention.</li>
+                            </ul>
+                            <p class="loot"><span>Loot:</span> 45% renewal rate · 25+ accounts · 15+ onboardings</p>
+                        </div>
+                    </details>
+
+                    <details class="quest px">
+                        <summary>
+                            <span class="quest-num">01</span>
+                            <span class="quest-head">
+                                <span class="quest-company">Assiduus Global</span>
+                                <span class="quest-role">Operations Trainee</span>
+                                <span class="quest-date">Jan 2025 – Jun 2025 · Bengaluru</span>
+                            </span>
+                            <span class="quest-status">Cleared ★</span>
+                        </summary>
+                        <div class="quest-body">
+                            <ul class="quest-points">
+                                <li>Processed 100+ purchase orders weekly across Amazon, Blinkit and Swiggy at 100% accuracy, cutting processing delays by 15% by aligning logistics and inventory teams.</li>
+                                <li>Audited 10,000+ US dropshipping listings against vendor sites (FragranceNet, Newegg), resolving 200+ data mismatches and reducing fulfillment errors by 20%.</li>
+                                <li>Optimized 1,200+ Shopify D2C product listings, contributing to a 25% lift in conversion rate.</li>
+                                <li>Partnered directly with Unilever International stakeholders on inventory planning and SKU-level analysis across 50+ SKUs, informing replenishment decisions.</li>
+                                <li>Managed day-to-day coordination for FMCG client accounts (HUL, Unilever International, Monin, Dabur) across B2B and D2C channels, tracking pipeline in Zoho CRM, HubSpot and Salesforce.</li>
+                            </ul>
+                            <p class="loot"><span>Loot:</span> 100% PO accuracy · −20% fulfillment errors · +25% conversion</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORLD 3: Projects -->
+        <section class="section" id="projects" data-world="Bonus stages">
+            <div class="container">
+                <p class="world-tag">World 3 · Bonus stages</p>
+                <h2 class="section-title">AI side quests</h2>
+                <p class="section-lede">Side projects where I apply what I know about support to AI agents.</p>
+
+                <div class="cartridges">
+                    <article class="cartridge">
+                        <div class="cart-label">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                            <span>Bonus stage 1</span>
+                        </div>
+                        <div class="cart-body">
+                            <h3>AI WhatsApp Support Assistant</h3>
+                            <p>A WhatsApp support agent for a voice-AI SaaS platform that answers questions on features, pricing, billing and API errors from a curated knowledge base, so customers get accurate answers in seconds.</p>
+                            <ul class="power-ups">
+                                <li>Replies in English, Hindi or Hinglish, matching the customer's language</li>
+                                <li>Remembers each customer's conversation and answers their messages in order</li>
+                                <li>Hands account, billing and refund issues to human support instead of guessing</li>
+                                <li>Never asks for passwords or API keys, and warns customers who share one</li>
+                            </ul>
+                            <ul class="tags"><li>Claude</li><li>Prompt engineering</li><li>Python</li><li>Node.js</li><li>WhatsApp</li></ul>
+                        </div>
+                    </article>
+
+                    <article class="cartridge">
+                        <div class="cart-label">
+                            <i class="fas fa-headset" aria-hidden="true"></i>
+                            <span>Bonus stage 2</span>
+                        </div>
+                        <div class="cart-body">
+                            <h3>Voice Agent QA &amp; Evaluation Suite</h3>
+                            <p>Automated quality assurance for AI phone agents. AI "callers" with different personas phone the agent, and an AI judge grades every call against the team's rules, like a QA team that never sleeps.</p>
+                            <ul class="power-ups">
+                                <li>5 caller personas, from easy bookings to emergencies and indecisive callers</li>
+                                <li>Scores each call on 7 rules, plus reply length and speaking time</li>
+                                <li>The first run caught the agent promising appointment slots it couldn't see</li>
+                                <li>Turns prompt changes into measurable before-and-after scores</li>
+                            </ul>
+                            <ul class="tags"><li>Claude</li><li>LLM-as-judge</li><li>Python</li><li>Evals</li><li>Voice AI</li></ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORLD 4: Skills -->
+        <section class="section section-alt" id="skills" data-world="Inventory">
+            <div class="container">
+                <p class="world-tag">World 4 · Inventory</p>
+                <h2 class="section-title">Items &amp; skills</h2>
+
+                <div class="inventory px">
+                    <div class="inv-tabs" role="tablist" aria-label="Skill categories">
+                        <button role="tab" type="button" id="tab-client" aria-controls="inv-client" aria-selected="true">Client-facing</button>
+                        <button role="tab" type="button" id="tab-ops" aria-controls="inv-ops" aria-selected="false" tabindex="-1">Operations</button>
+                        <button role="tab" type="button" id="tab-data" aria-controls="inv-data" aria-selected="false" tabindex="-1">Analytics</button>
+                        <button role="tab" type="button" id="tab-tools" aria-controls="inv-tools" aria-selected="false" tabindex="-1">Tools</button>
+                    </div>
+                    <div class="inv-panel" role="tabpanel" id="inv-client" aria-labelledby="tab-client">
+                        <ul class="slots">
+                            <li><button type="button">Client relationship management</button></li>
+                            <li><button type="button">Stakeholder management</button></li>
+                            <li><button type="button">Account reviews</button></li>
+                            <li><button type="button">Onboarding &amp; product walkthroughs</button></li>
+                            <li><button type="button">Renewals &amp; upsell support</button></li>
+                            <li><button type="button">Escalation management</button></li>
+                            <li><button type="button">Handling difficult conversations</button></li>
                         </ul>
-                        <div class="impact-badges">
-                            <span class="impact-badge">100% Accuracy</span>
-                            <span class="impact-badge">15% Delay Reduction</span>
-                            <span class="impact-badge">25% Conversion Boost</span>
-                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="marker-dot"></div>
-                        <div class="marker-line"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="company-info">
-                                <h3>MedTourEasy</h3>
-                                <span class="role">Data Analytics Trainee</span>
-                            </div>
-                            <span class="timeline-date">July 2024</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>
-                                Developed "Analysis of Chemical Components" project using various analytics techniques.
-                            </li>
-                            <li>
-                                Praised for executing tasks within strict time frames and demonstrating strong problem-solving skills.
-                            </li>
+                    <div class="inv-panel" role="tabpanel" id="inv-ops" aria-labelledby="tab-ops" hidden>
+                        <ul class="slots">
+                            <li><button type="button">SLA/KPI management (FRT, resolution TAT, CSAT)</button></li>
+                            <li><button type="button">Ticket lifecycle management</button></li>
+                            <li><button type="button">Inventory planning</button></li>
+                            <li><button type="button">SKU analysis</button></li>
+                            <li><button type="button">Cross-functional collaboration</button></li>
+                            <li><button type="button">Process improvement</button></li>
                         </ul>
-                        <div class="impact-badges">
-                            <span class="impact-badge">Analytics Project</span>
-                            <span class="impact-badge">Problem Solving</span>
-                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="marker-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="company-info">
-                                <h3>Zuventus Healthcare</h3>
-                                <span class="role">Summer Intern</span>
-                            </div>
-                            <span class="timeline-date">July 2023</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>
-                                Performed QA tests (pyrogen, antimicrobial) on 50+ batches/week, ensuring 100% FDA/WHO compliance.
-                            </li>
-                            <li>
-                                Analyzed microbial trends, reducing risks by 15%. Automated workflows to cut reporting time by 3 hours/batch.
-                            </li>
-                            <li>
-                                Predicted microbial risks via modeling, enabling 20% faster corrective actions.
-                            </li>
+                    <div class="inv-panel" role="tabpanel" id="inv-data" aria-labelledby="tab-data" hidden>
+                        <ul class="slots">
+                            <li><button type="button">Excel (Pivot Tables, VLOOKUP, VBA)</button></li>
+                            <li><button type="button">Power BI (DAX, Power Query)</button></li>
+                            <li><button type="button">Data validation</button></li>
+                            <li><button type="button">SQL (MySQL)</button></li>
+                            <li><button type="button">Python (pandas, matplotlib)</button></li>
+                            <li><button type="button">R</button></li>
                         </ul>
-                        <div class="impact-badges">
-                            <span class="impact-badge">100% Compliance</span>
-                            <span class="impact-badge">15% Risk Reduction</span>
-                            <span class="impact-badge">3hr Time Saved</span>
-                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects section" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Portfolio</span>
-                <h2 class="section-title">Key Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-visual">
-                        <div class="project-icon">
-                            <i class="fas fa-flask"></i>
-                        </div>
-                        <div class="visual-pattern"></div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-date">July 2024</span>
-                        <h3>Cosmetics Recommendation System</h3>
-                        <p>Built a content-based recommendation system using word embeddings and t-SNE for dimensionality reduction.</p>
-                        <ul class="project-highlights">
-                            <li>Word embeddings for ingredient similarity</li>
-                            <li>t-SNE dimensionality reduction</li>
-                            <li>Interactive Bokeh visualizations</li>
-                            <li>Customizable filtering pipeline</li>
+                    <div class="inv-panel" role="tabpanel" id="inv-tools" aria-labelledby="tab-tools" hidden>
+                        <ul class="slots">
+                            <li><button type="button">Freshdesk</button></li>
+                            <li><button type="button">Salesforce</button></li>
+                            <li><button type="button">HubSpot</button></li>
+                            <li><button type="button">Zoho CRM</button></li>
+                            <li><button type="button">Shopify</button></li>
                         </ul>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Bokeh</span>
-                            <span>t-SNE</span>
-                            <span>ML</span>
-                        </div>
                     </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-visual">
-                        <div class="project-icon">
-                            <i class="fas fa-virus"></i>
-                        </div>
-                        <div class="visual-pattern"></div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-date">September 2023</span>
-                        <h3>COVID-19 Analysis & Visualization</h3>
-                        <p>Comprehensive analysis of COVID-19 trends using advanced visualization techniques.</p>
-                        <ul class="project-highlights">
-                            <li>Choropleth maps for regional analysis</li>
-                            <li>Scatter plots for trend comparison</li>
-                            <li>Pandas data preprocessing</li>
-                            <li>Spread and recovery trend analysis</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Plotly Express</span>
-                            <span>Pandas</span>
-                        </div>
-                    </div>
-                </article>
+                    <p class="equipped" aria-live="polite">Pick an item to equip it.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Education Section -->
-    <section class="education section" id="education">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Academic</span>
-                <h2 class="section-title">Education</h2>
-            </div>
-            <div class="education-grid">
-                <div class="education-card featured">
-                    <div class="edu-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="edu-content">
-                        <h3>Dr. D.Y. Patil Biotechnology & Bioinformatics Institute</h3>
-                        <p class="edu-location">Pune, Maharashtra</p>
-                        <p class="edu-degree">B.Tech in Medical Biotechnology</p>
-                        <div class="edu-meta">
-                            <span class="edu-year">2021 – 2025</span>
-                            <span class="edu-score">GPA: <strong>9.06</strong></span>
+        <!-- WORLD 5: Education & certifications -->
+        <section class="section" id="education" data-world="Badges">
+            <div class="container">
+                <p class="world-tag">World 5 · Badges</p>
+                <h2 class="section-title">Training &amp; badges</h2>
+                <div class="badges">
+                    <div class="badge px badge-main">
+                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                        <div>
+                            <h3>Dr. D.Y. Patil Biotechnology &amp; Bioinformatics Institute, Pune</h3>
+                            <p>B.Tech in Medical Biotechnology</p>
+                            <p class="badge-meta">2021 – 2025 · <strong>GPA 9.06/10</strong></p>
                         </div>
                     </div>
-                </div>
-                <div class="education-card">
-                    <div class="edu-icon">
-                        <i class="fas fa-school"></i>
+                    <div class="badge px">
+                        <i class="fab fa-google" aria-hidden="true"></i>
+                        <div>
+                            <h3>Google Foundations: Data, Data, Everywhere</h3>
+                            <p>Coursera</p>
+                        </div>
                     </div>
-                    <div class="edu-content">
-                        <h3>Krishna Public School</h3>
-                        <p class="edu-location">Raipur, Chhattisgarh</p>
-                        <p class="edu-degree">Higher Secondary Certificate (12th)</p>
-                        <div class="edu-meta">
-                            <span class="edu-year">2020</span>
-                            <span class="edu-score">Score: <strong>90.6%</strong></span>
+                    <div class="badge px">
+                        <i class="fab fa-python" aria-hidden="true"></i>
+                        <div>
+                            <h3>100 Days of Code: Python Pro Bootcamp</h3>
+                            <p>Udemy</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Certifications Section -->
-    <section class="certifications section" id="certifications">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Credentials</span>
-                <h2 class="section-title">Certifications & Achievements</h2>
-            </div>
-            <div class="certs-wrapper">
-                <div class="certs-column">
-                    <h3 class="column-title">
-                        <i class="fas fa-certificate"></i>
-                        Certifications
-                    </h3>
-                    <div class="cert-list">
-                        <div class="cert-item">
-                            <div class="cert-badge">
-                                <i class="fab fa-python"></i>
-                            </div>
-                            <div class="cert-info">
-                                <h4>100 Days of Code: Python Pro Bootcamp</h4>
-                                <span>Udemy</span>
-                            </div>
-                        </div>
-                        <div class="cert-item">
-                            <div class="cert-badge">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="cert-info">
-                                <h4>Machine Learning A-Z</h4>
-                                <span>Udemy</span>
-                            </div>
-                        </div>
-                        <div class="cert-item">
-                            <div class="cert-badge">
-                                <i class="fab fa-google"></i>
-                            </div>
-                            <div class="cert-info">
-                                <h4>Google Foundations: Data, Data, Everywhere</h4>
-                                <span>Coursera</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="certs-column">
-                    <h3 class="column-title">
-                        <i class="fas fa-trophy"></i>
-                        Achievements
-                    </h3>
-                    <div class="achievement-list">
-                        <div class="achievement-item">
-                            <span class="achievement-icon">🏆</span>
-                            <div class="achievement-info">
-                                <h4>1st Position - Football</h4>
-                                <span>ARCANE 2024</span>
-                            </div>
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-icon">🥇</span>
-                            <div class="achievement-info">
-                                <h4>1st Position - Tug of War</h4>
-                                <span>ARCANE 2024</span>
-                            </div>
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-icon">🏀</span>
-                            <div class="achievement-info">
-                                <h4>1st Position - Basketball</h4>
-                                <span>ARCANE 2024</span>
-                            </div>
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-icon">🎭</span>
-                            <div class="achievement-info">
-                                <h4>Fashion Show Coordinator</h4>
-                                <span>CYTOSOUL 2024</span>
-                            </div>
-                        </div>
-                    </div>
+        <!-- WORLD 6: Contact -->
+        <section class="section contact" id="contact" data-world="Save point">
+            <div class="container">
+                <div class="continue px">
+                    <p class="world-tag">World 6 · Save point</p>
+                    <h2 class="continue-title">Continue? <span class="countdown" aria-hidden="true">9</span></h2>
+                    <p class="continue-text">Whether it's a role, a project or a question about customer success, pick an option and let's talk.</p>
+                    <ul class="menu" aria-label="Contact options">
+                        <li><a href="mailto:hardikprithusahu@gmail.com"><span class="menu-label">Email</span> hardikprithusahu@gmail.com</a></li>
+                        <li><a href="tel:+917000641226"><span class="menu-label">Call</span> +91 70006 41226</a></li>
+                        <li><a href="https://www.linkedin.com/in/sahuhardik0501" target="_blank" rel="noopener"><span class="menu-label">LinkedIn</span> in/sahuhardik0501</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section class="contact section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Connect</span>
-                <h2 class="section-title">Get in Touch</h2>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p class="contact-intro">
-                        I'm currently open to new opportunities in data analytics and related fields. 
-                        Let's connect and discuss how I can contribute to your team!
-                    </p>
-                    <div class="contact-methods">
-                        <a href="mailto:hardikprithusahu@gmail.com" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="method-info">
-                                <span class="method-label">Email</span>
-                                <span class="method-value">hardikprithusahu@gmail.com</span>
-                            </div>
-                        </a>
-                        <a href="tel:+917000641226" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="method-info">
-                                <span class="method-label">Phone</span>
-                                <span class="method-value">+91 7000641226</span>
-                            </div>
-                        </a>
-                        <a href="https://linkedin.com/in/hardik-sahu" target="_blank" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </div>
-                            <div class="method-info">
-                                <span class="method-label">LinkedIn</span>
-                                <span class="method-value">Hardik Sahu</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-visual">
-                    <div class="visual-card">
-                        <div class="card-glow"></div>
-                        <div class="card-content">
-                            <span class="card-label">Location</span>
-                            <h3>India</h3>
-                            <p>Open to remote opportunities worldwide</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="brand-logo">HS</span>
-                    <p>Data Analytics Specialist & Biotechnology Graduate</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-social">
-                    <a href="mailto:hardikprithusahu@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/hardik-sahu" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Hardik Sahu. Crafted with precision.</p>
-            </div>
+        <div class="container footer-inner">
+            <p>© 2026 Hardik Sahu · Bengaluru, India</p>
+            <p class="secret-hint">Psst: ↑ ↑ ↓ ↓ ← → ← → B A</p>
         </div>
     </footer>
+
+    <!-- Pause menu: navigation, achievements and settings -->
+    <div class="pause" id="pause" role="dialog" aria-modal="true" aria-labelledby="pause-title" hidden>
+        <div class="pause-box px">
+            <h2 id="pause-title" class="pause-title">Paused</h2>
+            <div class="pause-cols">
+                <div>
+                    <h3 class="pause-sub">World select</h3>
+                    <ul class="pause-nav">
+                        <li><a href="#top">0 · Title screen</a></li>
+                        <li><a href="#about">1 · Player profile</a></li>
+                        <li><a href="#experience">2 · Quest log</a></li>
+                        <li><a href="#projects">3 · Bonus stages</a></li>
+                        <li><a href="#skills">4 · Inventory</a></li>
+                        <li><a href="#education">5 · Badges</a></li>
+                        <li><a href="#contact">6 · Save point</a></li>
+                    </ul>
+                    <h3 class="pause-sub">Options</h3>
+                    <div class="pause-options">
+                        <button class="pbtn pbtn-small" type="button" data-action="sound">Sound: <span class="opt-sound">Off</span></button>
+                        <button class="pbtn pbtn-small" type="button" data-action="crt">Scanlines: <span class="opt-crt">On</span></button>
+                        <button class="pbtn pbtn-small" type="button" data-action="palette">Palette: <span class="opt-palette">Night</span></button>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="pause-sub">Achievements <span id="ach-count-2">0/8</span></h3>
+                    <ul class="ach-list"></ul>
+                </div>
+            </div>
+            <button class="pbtn pause-resume" type="button" data-action="close-menu">▶ Resume</button>
+        </div>
+    </div>
+
+    <!-- Achievement pop-up -->
+    <div class="toast px" role="status" aria-live="polite">
+        <p class="toast-title"></p>
+        <p class="toast-text"></p>
+    </div>
 
     <script src="script.js"></script>
 </body>
